@@ -1,0 +1,14 @@
+{
+  "name": "OBDCougar",
+  "version": "0.1.0",
+  "description": "OBDCougar application built with Electron",
+  "author": {
+    "name": "Adam Kozlowski",
+    "email": ""
+  },
+  "license": "MIT",
+  "main": "javascripts/main/index.js",
+  "dependencies": {
+
+  }
+}

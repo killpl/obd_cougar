@@ -1,0 +1,29 @@
+{
+  "name": "OBDCougar",
+  "version": "0.1.0",
+  "description": "Desktop application build with Electron",
+  "repository": "",
+  "scripts": {
+    "postinstall": "install-app-deps"
+  },
+  "devDependencies": {
+    "electron-builder": "7.13.0",
+    "electron-packager-tf": "7.5.3",
+    "electron": "1.4.3",
+    "gulp": "^3.9.1",
+    "mocha": "^3.1.2",
+    "spectron": "^3.4.0",
+    "webpack-stream": "^3.2.0"
+  },
+  "build": {
+    "appId": "com.electron.obd cougar",
+    "category": "your.app.category.type",
+    "win": {
+      "iconUrl": "https://github.com/railsware/bozon/blob/master/lib/templates/images/electron.ico?raw=true"
+    },
+    "mac": {
+      "icon": "resources/icon.icns",
+      "target": "dmg"
+    }
+  }
+}
