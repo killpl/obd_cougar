@@ -25,5 +25,8 @@
       "icon": "resources/icon.icns",
       "target": "dmg"
     }
+  },
+  "dependencies": {
+    "nan": "^2.5.1"
   }
 }

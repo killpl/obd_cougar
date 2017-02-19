@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66CE576E1E5A1516000871A0 /* cougar_bluetooth_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66CE576D1E5A1516000871A0 /* cougar_bluetooth_osx.mm */; };
+		66CE57701E5A156E000871A0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE576F1E5A156E000871A0 /* CoreBluetooth.framework */; };
+		66CE578B1E5A1F24000871A0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66CE57891E5A1F24000871A0 /* Info.plist */; };
+		66CE578C1E5A1F24000871A0 /* Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66CE578A1E5A1F24000871A0 /* Tests.mm */; };
+		66CE578D1E5A2136000871A0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CE576F1E5A156E000871A0 /* CoreBluetooth.framework */; };
+		66CE578E1E5A221E000871A0 /* cougar_bluetooth_interface.h in Sources */ = {isa = PBXBuildFile; fileRef = 66CE57731E5A1C45000871A0 /* cougar_bluetooth_interface.h */; };
+		66CE578F1E5A221E000871A0 /* cougar_bluetooth_osx.h in Sources */ = {isa = PBXBuildFile; fileRef = 66CE576C1E5A1516000871A0 /* cougar_bluetooth_osx.h */; };
+		66CE57901E5A221E000871A0 /* cougar_bluetooth_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66CE576D1E5A1516000871A0 /* cougar_bluetooth_osx.mm */; };
 		7D5B5977490A510AFBA05C82 /* cougar_bluetooth_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */; };
 /* End PBXBuildFile section */
 
@@ -15,15 +23,31 @@
 		406BF4E9B9FA98B0D1CD58CC /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../.node-gyp/6.9.2/include/node/common.gypi"; sourceTree = "<group>"; };
 		4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = cougar_bluetooth_lib.node; sourceTree = BUILT_PRODUCTS_DIR; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
+		66CE576C1E5A1516000871A0 /* cougar_bluetooth_osx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cougar_bluetooth_osx.h; path = macOS/cougar_bluetooth_osx.h; sourceTree = "<group>"; };
+		66CE576D1E5A1516000871A0 /* cougar_bluetooth_osx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = cougar_bluetooth_osx.mm; path = macOS/cougar_bluetooth_osx.mm; sourceTree = "<group>"; };
+		66CE576F1E5A156E000871A0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		66CE57731E5A1C45000871A0 /* cougar_bluetooth_interface.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = cougar_bluetooth_interface.h; sourceTree = "<group>"; };
+		66CE577B1E5A1E8F000871A0 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66CE57891E5A1F24000871A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
+		66CE578A1E5A1F24000871A0 /* Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Tests.mm; path = Tests/Tests.mm; sourceTree = SOURCE_ROOT; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cougar_bluetooth_lib.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		66CE57781E5A1E8F000871A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CE578D1E5A2136000871A0 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DF91470C770C8BCFA012CB4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CE57701E5A156E000871A0 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,10 +65,46 @@
 			name = Build;
 			sourceTree = "<group>";
 		};
+		66CE57681E5A13A5000871A0 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				66CE576C1E5A1516000871A0 /* cougar_bluetooth_osx.h */,
+				66CE576D1E5A1516000871A0 /* cougar_bluetooth_osx.mm */,
+			);
+			name = macOS;
+			sourceTree = "<group>";
+		};
+		66CE57711E5A157C000871A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66CE576F1E5A156E000871A0 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66CE57721E5A1C2F000871A0 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				66CE57731E5A1C45000871A0 /* cougar_bluetooth_interface.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		66CE577C1E5A1E8F000871A0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				66CE57891E5A1F24000871A0 /* Info.plist */,
+				66CE578A1E5A1F24000871A0 /* Tests.mm */,
+			);
+			name = Tests;
+			path = build/Tests;
+			sourceTree = "<group>";
+		};
 		76CAE45545D759339C4C84F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */,
+				66CE577B1E5A1E8F000871A0 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,8 +120,12 @@
 		CE1625FFB3C961F8F90D7E10 = {
 			isa = PBXGroup;
 			children = (
+				66CE57721E5A1C2F000871A0 /* Headers */,
+				66CE57681E5A13A5000871A0 /* macOS */,
 				A131859E06C6B6EFA239389E /* Source */,
+				66CE577C1E5A1E8F000871A0 /* Tests */,
 				76CAE45545D759339C4C84F5 /* Products */,
+				66CE57711E5A157C000871A0 /* Frameworks */,
 				38885F38CBC875FB50D53A58 /* Build */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +133,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		66CE577A1E5A1E8F000871A0 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66CE57831E5A1E8F000871A0 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				66CE57771E5A1E8F000871A0 /* Sources */,
+				66CE57781E5A1E8F000871A0 /* Frameworks */,
+				66CE57791E5A1E8F000871A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 66CE577B1E5A1E8F000871A0 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7AD78F0E81BA724D7BAD373 /* cougar_bluetooth_lib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F3CC0D7C22C3BA8DF808AD6 /* Build configuration list for PBXNativeTarget "cougar_bluetooth_lib" */;
@@ -92,31 +173,155 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				TargetAttributes = {
+					66CE577A1E5A1E8F000871A0 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
 			};
 			buildConfigurationList = 4C650493AFEDDCC6E69C8CC5 /* Build configuration list for PBXProject "binding" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = CE1625FFB3C961F8F90D7E10;
 			projectDirPath = ..;
 			projectRoot = "";
 			targets = (
 				C7AD78F0E81BA724D7BAD373 /* cougar_bluetooth_lib */,
+				66CE577A1E5A1E8F000871A0 /* Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66CE57791E5A1E8F000871A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CE578B1E5A1F24000871A0 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F5C8E41952B005A1DC01DF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CE576E1E5A1516000871A0 /* cougar_bluetooth_osx.mm in Sources */,
 				7D5B5977490A510AFBA05C82 /* cougar_bluetooth_lib.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CE57771E5A1E8F000871A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CE578E1E5A221E000871A0 /* cougar_bluetooth_interface.h in Sources */,
+				66CE578F1E5A221E000871A0 /* cougar_bluetooth_osx.h in Sources */,
+				66CE57901E5A221E000871A0 /* cougar_bluetooth_osx.mm in Sources */,
+				66CE578C1E5A1F24000871A0 /* Tests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		66CE57841E5A1E8F000871A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "adam-kozlowski.Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		66CE57851E5A1E8F000871A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "adam-kozlowski.Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
 		6E6920ED8E0647812495A381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -154,6 +359,7 @@
 					DEBUG,
 					_DEBUG,
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
@@ -161,12 +367,14 @@
 					"/Users/adam/.node-gyp/6.9.2/src",
 					"/Users/adam/.node-gyp/6.9.2/deps/uv/include",
 					"/Users/adam/.node-gyp/6.9.2/deps/v8/include",
+					../node_modules/nan/,
 				);
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-fno-strict-aliasing";
 				OTHER_LDFLAGS = (
-					"-undefined dynamic_lookup",
+					"-undefined",
+					dynamic_lookup,
 					"-Wl,-no_pie",
 					"-Wl,-search_paths_first",
 				);
@@ -208,6 +416,7 @@
 					"_FILE_OFFSET_BITS=64",
 					BUILDING_NODE_EXTENSION,
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
@@ -215,12 +424,14 @@
 					"/Users/adam/.node-gyp/6.9.2/src",
 					"/Users/adam/.node-gyp/6.9.2/deps/uv/include",
 					"/Users/adam/.node-gyp/6.9.2/deps/v8/include",
+					../node_modules/nan/,
 				);
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-fno-strict-aliasing";
 				OTHER_LDFLAGS = (
-					"-undefined dynamic_lookup",
+					"-undefined",
+					dynamic_lookup,
 					"-Wl,-no_pie",
 					"-Wl,-search_paths_first",
 				);
@@ -264,6 +475,14 @@
 			);
 			defaultConfigurationIsVisible = 1;
 			defaultConfigurationName = Release;
+		};
+		66CE57831E5A1E8F000871A0 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66CE57841E5A1E8F000871A0 /* Release */,
+				66CE57851E5A1E8F000871A0 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

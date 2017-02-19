@@ -1,4 +1,4 @@
-#include <nan.h>
+#include <node.h>
 
 namespace Cougar_Bluetooth {
     

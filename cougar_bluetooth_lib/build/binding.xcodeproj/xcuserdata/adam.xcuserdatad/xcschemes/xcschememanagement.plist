@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Tests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>cougar_bluetooth_lib.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>66CE577A1E5A1E8F000871A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C7AD78F0E81BA724D7BAD373</key>
 		<dict>
 			<key>primary</key>
