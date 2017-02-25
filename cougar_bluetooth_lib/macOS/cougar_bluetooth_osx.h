@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "../cougar_bluetooth_interface.h"
 
 typedef NS_ENUM(NSUInteger, CougarBluetoothState) {
     CougarBluetoothStateOff,

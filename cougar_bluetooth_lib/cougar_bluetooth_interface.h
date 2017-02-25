@@ -5,8 +5,8 @@
 //  Created by Adam Kozłowski on 19/02/2017.
 //
 //
-#ifndef cougar_bluetooth_interface_h
-#define cougar_bluetooth_interface_h
+
+#pragma once
 
 #include <vector>
 #include <string>
@@ -36,6 +36,4 @@ public:
     virtual void OnBluetoothDevicesFound(vector<string> devices) = 0;
 };
     
-} // namespace Cougar_Bluetooth {
-
-#endif /* cougar_bluetooth_interface_h */
+} // namespace Cougar_Bluetooth

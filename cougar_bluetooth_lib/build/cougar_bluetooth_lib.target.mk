@@ -95,7 +95,9 @@ INCS_Release := \
 	-I/Users/adam/.node-gyp/6.9.2/deps/v8/include
 
 OBJS := \
-	$(obj).target/$(TARGET)/cougar_bluetooth_lib.o
+	$(obj).target/$(TARGET)/cougar_bluetooth_lib.o \
+	$(obj).target/$(TARGET)/cougar_bluetooth.o \
+	$(obj).target/$(TARGET)/macOS/cougar_bluetooth_osx.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)
@@ -113,12 +115,30 @@ $(OBJS): GYP_OBJCXXFLAGS := $(DEFS_$(BUILDTYPE)) $(INCS_$(BUILDTYPE))  $(CFLAGS_
 $(obj).$(TOOLSET)/$(TARGET)/%.o: $(srcdir)/%.cc FORCE_DO_CMD
 	@$(call do_cmd,cxx,1)
 
+$(obj).$(TOOLSET)/$(TARGET)/%.o: $(srcdir)/%.mm FORCE_DO_CMD
+	@$(call do_cmd,objcxx,1)
+
+$(obj).$(TOOLSET)/$(TARGET)/%.o: $(srcdir)/%.cpp FORCE_DO_CMD
+	@$(call do_cmd,cxx,1)
+
 # Try building from generated source, too.
 
 $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj).$(TOOLSET)/%.cc FORCE_DO_CMD
 	@$(call do_cmd,cxx,1)
 
+$(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj).$(TOOLSET)/%.mm FORCE_DO_CMD
+	@$(call do_cmd,objcxx,1)
+
+$(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj).$(TOOLSET)/%.cpp FORCE_DO_CMD
+	@$(call do_cmd,cxx,1)
+
 $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cc FORCE_DO_CMD
+	@$(call do_cmd,cxx,1)
+
+$(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.mm FORCE_DO_CMD
+	@$(call do_cmd,objcxx,1)
+
+$(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cpp FORCE_DO_CMD
 	@$(call do_cmd,cxx,1)
 
 # End of this set of suffix rules
