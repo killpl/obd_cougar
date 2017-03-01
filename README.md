@@ -26,4 +26,4 @@ Builds the app for OS X, Linux, and Windows, using [electron-builder](https://gi
 
 ## License
 
-The MIT License (MIT) © Adam Kozlowski 2017
+The General Public License (GPL) © Adam Kozlowski 2017
