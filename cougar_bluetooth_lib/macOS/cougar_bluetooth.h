@@ -8,12 +8,11 @@
 
 #pragma once
 
-#include "cougar_bluetooth_interface.h"
+#include "../cougar_bluetooth_interface.h"
+#include "../../cougar_lib_commons/Listenable.h"
 
 #include <memory>
 #include <string>
-
-using namespace std;
 
 namespace Cougar_Bluetooth {
 
@@ -21,15 +20,16 @@ namespace Cougar_Bluetooth {
 struct PlatformSpecificContainer;
     
 /**
- * Common wrapper class for native system files.
+ * Wrapper class for native os bluetooth enumeration.
+ * Might be shared with iOS.
  */
-class CougarBluetooth
+class CougarBluetooth : public Listenable<CougarBluetoothInterface>
 {
 public:
-    CougarBluetooth(unique_ptr<CougarBluetoothInterface> listener);
+    CougarBluetooth(std::shared_ptr<CougarBluetoothInterface> listener);
     virtual ~CougarBluetooth();
     
-    void StartScan(string deviceUUID);
+    void StartScan(std::string deviceUUID);
     
     void StopScan();
     
@@ -38,8 +38,10 @@ public:
     bool IsScanning();
     
 private:
-    // Holds platform specific implementation of the interface
-    // that communicates with bluetooth.
+    /**
+     * Holds platform specific implementation of the interface
+     * that communicates with bluetooth.
+     */
     struct PlatformSpecificContainer *_container;
 };
     

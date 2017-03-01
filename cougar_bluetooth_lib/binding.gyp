@@ -2,16 +2,16 @@
   "targets": [
     {
       "target_name": "cougar_bluetooth_lib",
+      
       "sources": [
         "cougar_bluetooth_lib.cc",
         
         "cougar_bluetooth_interface.h",
-        "cougar_bluetooth_osx.h",
         
+        "./../cougar_lib_commons/Listenable.h",
         
-        
-        "cougar_bluetooth.h",
-        "cougar_bluetooth.mm",
+        "./macOS/cougar_bluetooth.h",
+        "./macOS/cougar_bluetooth.mm",
         
         "./macOS/cougar_bluetooth_osx.h",
         "./macOS/cougar_bluetooth_osx.mm"

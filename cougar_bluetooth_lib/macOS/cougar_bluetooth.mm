@@ -7,7 +7,8 @@
 //
 
 #include "cougar_bluetooth.h"
-#include "macOS/cougar_bluetooth_osx.h"
+#include "cougar_bluetooth_osx.h"
+#include "binding_utilities.h"
 
 using namespace Cougar_Bluetooth;
 using namespace std;
@@ -21,7 +22,7 @@ struct Cougar_Bluetooth::PlatformSpecificContainer {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CougarBluetooth::CougarBluetooth(unique_ptr<CougarBluetoothInterface> listener)
+CougarBluetooth::CougarBluetooth(shared_ptr<CougarBluetoothInterface> listener)
 {
     _container->bluetooth = [[CougarBluetoothOSX alloc] init];
 }
@@ -40,28 +41,29 @@ CougarBluetooth::~CougarBluetooth()
 
 void CougarBluetooth::StartScan(string deviceUUID)
 {
-    
+    //_container->bluetooth startScanForDevices: withBlock:<#(void (*)(NSArray *))#>
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 void CougarBluetooth::StopScan()
 {
-    
+    [_container->bluetooth stopScan];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 CougarBluetoothStatus CougarBluetooth::GetStatus()
 {
-    
+    // Not a perfectly safe cast, but fine for now
+    return (CougarBluetoothStatus)[_container->bluetooth status];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 bool CougarBluetooth::IsScanning()
 {
-    
+    return [_container->bluetooth isScanning];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
