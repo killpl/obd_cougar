@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		00FABE6142241A773D33F821 /* cougar_bluetooth_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */; };
+		5383A4BA739086C42CAF0E2E /* -framework CoreFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D50F1F8794057AE6151DD /* -framework CoreFoundation */; };
 		8F4D6E8EEFA5AB13366D7389 /* cougar_bluetooth_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */; };
-		990648BDBBF59CD26B690476 /* CoreBluetooth,CoreFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 717A2BBFFFD39FD6C9C4A525 /* CoreBluetooth,CoreFoundation */; };
-		CC23FA9217413A5DA64D1841 /* -framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B3F22891C2D7CE06B18B90 /* -framework */; };
+		A6EA11E9CC23AEC69CBE116B /* -framework CoreBluetooth in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F573DFD1567EE4D8C7EC577 /* -framework CoreBluetooth */; };
 		EAAB0F8EC6F9746D2E179D8D /* cougar_bluetooth.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEDF70E156E08E9EF9B8FC51 /* cougar_bluetooth.mm */; };
 /* End PBXBuildFile section */
 
@@ -19,16 +19,16 @@
 		30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = cougar_bluetooth_osx.mm; sourceTree = "<group>"; };
 		406BF4E9B9FA98B0D1CD58CC /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../.node-gyp/6.9.2/include/node/common.gypi"; sourceTree = "<group>"; };
 		48389D1C386E5F540843AD99 /* cougar_bluetooth_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth_osx.h; sourceTree = "<group>"; };
-		49B3F22891C2D7CE06B18B90 /* -framework */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework"; sourceTree = "<group>"; };
 		4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = cougar_bluetooth_lib.node; sourceTree = BUILT_PRODUCTS_DIR; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
 		6C027CE311E6F8B48D636421 /* cougar_bluetooth_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth_interface.h; sourceTree = "<group>"; };
-		717A2BBFFFD39FD6C9C4A525 /* CoreBluetooth,CoreFoundation */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CoreBluetooth,CoreFoundation"; sourceTree = "<group>"; };
+		7F573DFD1567EE4D8C7EC577 /* -framework CoreBluetooth */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework CoreBluetooth"; sourceTree = "<group>"; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cougar_bluetooth_lib.cc; sourceTree = "<group>"; };
 		C9CCE0C359FDB070ADA16876 /* cougar_bluetooth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth.h; sourceTree = "<group>"; };
 		CEDF70E156E08E9EF9B8FC51 /* cougar_bluetooth.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = cougar_bluetooth.mm; sourceTree = "<group>"; };
 		F45298616A5FCDBFBD15D323 /* Listenable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Listenable.h; sourceTree = "<group>"; };
+		F45D50F1F8794057AE6151DD /* -framework CoreFoundation */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework CoreFoundation"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,23 +36,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC23FA9217413A5DA64D1841 /* -framework in Frameworks */,
-				990648BDBBF59CD26B690476 /* CoreBluetooth,CoreFoundation in Frameworks */,
+				A6EA11E9CC23AEC69CBE116B /* -framework CoreBluetooth in Frameworks */,
+				5383A4BA739086C42CAF0E2E /* -framework CoreFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D262E409A4A0E73C2E40CC4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				49B3F22891C2D7CE06B18B90 /* -framework */,
-				717A2BBFFFD39FD6C9C4A525 /* CoreBluetooth,CoreFoundation */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		322A2D5A359DA5BAC321F3EE /* ../cougar_lib_commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				6CFC359CB0183F5FB4772254 /* Source */,
-				1D262E409A4A0E73C2E40CC4 /* Frameworks */,
+				A59E5FBBA71AB907C07F9A2C /* Frameworks */,
 				76CAE45545D759339C4C84F5 /* Products */,
 				38885F38CBC875FB50D53A58 /* Build */,
 			);
@@ -99,6 +90,15 @@
 				4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A59E5FBBA71AB907C07F9A2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F573DFD1567EE4D8C7EC577 /* -framework CoreBluetooth */,
+				F45D50F1F8794057AE6151DD /* -framework CoreFoundation */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BF19EAA92B5C5AC6500CA127 /* macOS */ = {
@@ -141,11 +141,7 @@
 			};
 			buildConfigurationList = 4C650493AFEDDCC6E69C8CC5 /* Build configuration list for PBXProject "binding" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
-			knownRegions = (
-				en,
-			);
 			mainGroup = 74FB431A6F457CFAA99DF565;
 			projectDirPath = ..;
 			projectRoot = "";
@@ -222,12 +218,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
 					"-fno-strict-aliasing",
-					"-ObjC",
+					"-ObjC++",
 					"-std=c++11",
 				);
 				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
+					"-undefined dynamic_lookup",
 					"-Wl,-no_pie",
 					"-Wl,-search_paths_first",
 				);
@@ -285,12 +280,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
 					"-fno-strict-aliasing",
-					"-ObjC",
+					"-ObjC++",
 					"-std=c++11",
 				);
 				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
+					"-undefined dynamic_lookup",
 					"-Wl,-no_pie",
 					"-Wl,-search_paths_first",
 				);

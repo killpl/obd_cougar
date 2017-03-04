@@ -32,7 +32,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-- (void)startScanForDevices:(NSString *)deviceId withBlock:(void (NSArray*))block {
+- (void)startScanForDevices:(NSString *)deviceId withCallback:(void (NSArray*))block {
     
 }
 

@@ -33,12 +33,13 @@
           ],
           'link_settings': {
               'libraries': [
-                'CoreBluetooth',
-                'CoreFoundation',
+                '-framework CoreBluetooth',
+                '-framework CoreFoundation',
               ]
           },
           'xcode_settings': {
               'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
+              'CLANG_CXX_LIBRARY': 'libc++',
           },
         }
       ],
@@ -49,7 +50,7 @@
     ],
     'xcode_settings': {
         'OTHER_CFLAGS': [
-            '-ObjC',
+            '-ObjC++',
             '-std=c++11'
         ],
     },
