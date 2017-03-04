@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, CougarBluetoothState) {
 
 - (instancetype)init;
 
-- (void)startScanForDevices:(NSString *)deviceId withBlock:(void (NSArray*))block;
+- (void)startScanForDevices:(NSString *)deviceId withCallback:(void (NSArray*))block;
 
 - (void)stopScan;
 

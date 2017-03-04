@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		928A11ECD69C1ADBAF3468A2 /* cougar_bluetooth_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */; };
-		B84C225B130394A462C2B40C /* cougar_bluetooth.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEDF70E156E08E9EF9B8FC51 /* cougar_bluetooth.mm */; };
-		B9D23D297278559B2BAE4C5D /* cougar_bluetooth_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */; };
+		00FABE6142241A773D33F821 /* cougar_bluetooth_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */; };
+		8F4D6E8EEFA5AB13366D7389 /* cougar_bluetooth_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */; };
+		990648BDBBF59CD26B690476 /* CoreBluetooth,CoreFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = 717A2BBFFFD39FD6C9C4A525 /* CoreBluetooth,CoreFoundation */; };
+		CC23FA9217413A5DA64D1841 /* -framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B3F22891C2D7CE06B18B90 /* -framework */; };
+		EAAB0F8EC6F9746D2E179D8D /* cougar_bluetooth.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEDF70E156E08E9EF9B8FC51 /* cougar_bluetooth.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,9 +19,11 @@
 		30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = cougar_bluetooth_osx.mm; sourceTree = "<group>"; };
 		406BF4E9B9FA98B0D1CD58CC /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../.node-gyp/6.9.2/include/node/common.gypi"; sourceTree = "<group>"; };
 		48389D1C386E5F540843AD99 /* cougar_bluetooth_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth_osx.h; sourceTree = "<group>"; };
+		49B3F22891C2D7CE06B18B90 /* -framework */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework"; sourceTree = "<group>"; };
 		4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = cougar_bluetooth_lib.node; sourceTree = BUILT_PRODUCTS_DIR; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
 		6C027CE311E6F8B48D636421 /* cougar_bluetooth_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth_interface.h; sourceTree = "<group>"; };
+		717A2BBFFFD39FD6C9C4A525 /* CoreBluetooth,CoreFoundation */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CoreBluetooth,CoreFoundation"; sourceTree = "<group>"; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cougar_bluetooth_lib.cc; sourceTree = "<group>"; };
 		C9CCE0C359FDB070ADA16876 /* cougar_bluetooth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth.h; sourceTree = "<group>"; };
@@ -32,12 +36,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC23FA9217413A5DA64D1841 /* -framework in Frameworks */,
+				990648BDBBF59CD26B690476 /* CoreBluetooth,CoreFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D262E409A4A0E73C2E40CC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49B3F22891C2D7CE06B18B90 /* -framework */,
+				717A2BBFFFD39FD6C9C4A525 /* CoreBluetooth,CoreFoundation */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		322A2D5A359DA5BAC321F3EE /* ../cougar_lib_commons */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +83,16 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		74FB431A6F457CFAA99DF565 = {
+			isa = PBXGroup;
+			children = (
+				6CFC359CB0183F5FB4772254 /* Source */,
+				1D262E409A4A0E73C2E40CC4 /* Frameworks */,
+				76CAE45545D759339C4C84F5 /* Products */,
+				38885F38CBC875FB50D53A58 /* Build */,
+			);
+			sourceTree = "<group>";
+		};
 		76CAE45545D759339C4C84F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,15 +110,6 @@
 				30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */,
 			);
 			path = macOS;
-			sourceTree = "<group>";
-		};
-		CE1625FFB3C961F8F90D7E10 = {
-			isa = PBXGroup;
-			children = (
-				6CFC359CB0183F5FB4772254 /* Source */,
-				76CAE45545D759339C4C84F5 /* Products */,
-				38885F38CBC875FB50D53A58 /* Build */,
-			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +146,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = CE1625FFB3C961F8F90D7E10;
+			mainGroup = 74FB431A6F457CFAA99DF565;
 			projectDirPath = ..;
 			projectRoot = "";
 			targets = (
@@ -144,9 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				928A11ECD69C1ADBAF3468A2 /* cougar_bluetooth_lib.cc in Sources */,
-				B84C225B130394A462C2B40C /* cougar_bluetooth.mm in Sources */,
-				B9D23D297278559B2BAE4C5D /* cougar_bluetooth_osx.mm in Sources */,
+				00FABE6142241A773D33F821 /* cougar_bluetooth_lib.cc in Sources */,
+				EAAB0F8EC6F9746D2E179D8D /* cougar_bluetooth.mm in Sources */,
+				8F4D6E8EEFA5AB13366D7389 /* cougar_bluetooth_osx.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,13 +172,7 @@
 		6E6920ED8E0647812495A381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_ENABLE_CPP_EXCEPTIONS = YES;
-				HEADER_SEARCH_PATHS = ../node_modules/nan;
 				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
-				OTHER_CFLAGS = (
-					"-ObjC",
-					"-std=c++11",
-				);
 				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
 			};
 			name = Debug;
@@ -181,7 +191,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_CW_ASM_SYNTAX = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -193,6 +203,7 @@
 					"_DARWIN_USE_64_BIT_INODE=1",
 					_LARGEFILE_SOURCE,
 					"_FILE_OFFSET_BITS=64",
+					__MACOSX_CORE__,
 					BUILDING_NODE_EXTENSION,
 					DEBUG,
 					_DEBUG,
@@ -204,11 +215,16 @@
 					"/Users/adam/.node-gyp/6.9.2/src",
 					"/Users/adam/.node-gyp/6.9.2/deps/uv/include",
 					"/Users/adam/.node-gyp/6.9.2/deps/v8/include",
-					../node_modules/nan/,
+					../node_modules/nan,
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_CFLAGS = "-fno-strict-aliasing";
+				OTHER_CFLAGS = (
+					"-fno-strict-aliasing",
+					"-ObjC",
+					"-std=c++11",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -241,7 +257,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_CW_ASM_SYNTAX = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -252,6 +268,7 @@
 					"_DARWIN_USE_64_BIT_INODE=1",
 					_LARGEFILE_SOURCE,
 					"_FILE_OFFSET_BITS=64",
+					__MACOSX_CORE__,
 					BUILDING_NODE_EXTENSION,
 				);
 				GCC_THREADSAFE_STATICS = NO;
@@ -261,11 +278,16 @@
 					"/Users/adam/.node-gyp/6.9.2/src",
 					"/Users/adam/.node-gyp/6.9.2/deps/uv/include",
 					"/Users/adam/.node-gyp/6.9.2/deps/v8/include",
-					../node_modules/nan/,
+					../node_modules/nan,
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_CFLAGS = "-fno-strict-aliasing";
+				OTHER_CFLAGS = (
+					"-fno-strict-aliasing",
+					"-ObjC",
+					"-std=c++11",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -287,13 +309,7 @@
 		F0FE067650554857AB1E411A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_ENABLE_CPP_EXCEPTIONS = YES;
-				HEADER_SEARCH_PATHS = ../node_modules/nan;
 				INTERMEDIATE_DIR = "$(PROJECT_DERIVED_FILE_DIR)/$(CONFIGURATION)";
-				OTHER_CFLAGS = (
-					"-ObjC",
-					"-std=c++11",
-				);
 				SHARED_INTERMEDIATE_DIR = "$(SYMROOT)/DerivedSources/$(CONFIGURATION)";
 			};
 			name = Release;

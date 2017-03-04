@@ -15,13 +15,13 @@
         
         "./macOS/cougar_bluetooth_osx.h",
         "./macOS/cougar_bluetooth_osx.mm"
-       ]
-    }
-  ],
-  "include_dirs" : [
-    "<!(node -e \"require('nan')\")",
-  ],
-  "conditions": [
+       ],
+
+       "include_dirs" : [
+          "<!(node -e \"require('nan')\")"
+       ],
+
+         "conditions": [
       ['OS=="linux"',
         {
         }
@@ -33,17 +33,13 @@
           ],
           'link_settings': {
               'libraries': [
-              '-framework', 'CoreBluetooth',
-              '-framework', 'CoreFoundation',
+                'CoreBluetooth',
+                'CoreFoundation',
               ]
           },
           'xcode_settings': {
               'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
-              'HEADER_SEARCH_PATHS' : "<!(node -e \"require('nan')\")",
           },
-          'include_dirs' : [
-            "<!(node -e \"require('nan')\")",
-          ],
         }
       ],
       ['OS=="win"',
@@ -57,4 +53,6 @@
             '-std=c++11'
         ],
     },
+    }
+  ],
 }

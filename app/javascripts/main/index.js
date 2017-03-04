@@ -3,6 +3,8 @@ var electron, path, json;
 path = require('path');
 json = require('../../package.json');
 
+bluetooth = require("./../../../../cougar_bluetooth_lib/build/Products/Debug/cougar_bluetooth_lib.node");
+
 electron = require('electron');
 
 electron.app.on('ready', function() {
