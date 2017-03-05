@@ -21,7 +21,6 @@ namespace Cougar_Bluetooth {
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
     }
     
-    
     void SetLogCallback(const FunctionCallbackInfo<Value>& args) {
         Isolate* isolate = args.GetIsolate();
         Local<Function> cb = Local<Function>::Cast(args[0]);

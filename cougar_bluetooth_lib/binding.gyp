@@ -21,39 +21,42 @@
           "<!(node -e \"require('nan')\")"
        ],
 
-         "conditions": [
-      ['OS=="linux"',
-        {
-        }
-      ],
-      ['OS=="mac"',
-        {
-          'defines': [
-          '__MACOSX_CORE__'
+       "conditions": [
+          
+          ['OS=="mac"',
+            {
+              'defines': [
+                '__MACOSX_CORE__'
+              ],
+              'link_settings': {
+                  'libraries': [
+                    '-framework CoreBluetooth',
+                    '-framework CoreFoundation',
+                  ]
+              },
+              'xcode_settings': {
+                  'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
+                  'CLANG_CXX_LIBRARY': 'libc++',
+
+                  'OTHER_CFLAGS': [
+                    '-ObjC++',
+                    '-std=c++11'
+                  ],
+              },
+            }
           ],
-          'link_settings': {
-              'libraries': [
-                '-framework CoreBluetooth',
-                '-framework CoreFoundation',
-              ]
-          },
-          'xcode_settings': {
-              'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
-              'CLANG_CXX_LIBRARY': 'libc++',
-          },
-        }
+
+          ['OS=="win"',
+            {
+            }
+          ],
+
+          ['OS=="linux"',
+            {
+            }
+          ],
       ],
-      ['OS=="win"',
-        {
-        }
-      ]
-    ],
-    'xcode_settings': {
-        'OTHER_CFLAGS': [
-            '-ObjC++',
-            '-std=c++11'
-        ],
-    },
+
     }
   ],
 }

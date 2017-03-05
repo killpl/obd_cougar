@@ -3,9 +3,14 @@ var electron, path, json;
 path = require('path');
 json = require('../../package.json');
 
-bluetooth = require("./../../../../cougar_bluetooth_lib/build/Products/Debug/cougar_bluetooth_lib.node");
-
 electron = require('electron');
+
+bluetooth = require("./../../../../cougar_bluetooth_lib/build/Release/cougar_bluetooth_lib.node");
+
+var _logFunction = function(str) {
+  console.log(str);
+};
+bluetooth.SetLogCallback(_logFunction);
 
 electron.app.on('ready', function() {
   var window;
@@ -25,6 +30,8 @@ electron.app.on('ready', function() {
       nodeVersion: process.versions.node,
       chromiumVersion: process.versions.chrome
     });
+
+
   });
 
   window.on('closed', function() {
