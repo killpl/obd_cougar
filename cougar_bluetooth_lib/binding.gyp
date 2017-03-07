@@ -30,8 +30,8 @@
               ],
               'link_settings': {
                   'libraries': [
-                    '-framework CoreBluetooth',
-                    '-framework CoreFoundation',
+                    'CoreBluetooth.framework',
+                    'CoreFoundation.framework',
                   ]
               },
               'xcode_settings': {

@@ -9,7 +9,6 @@
   },
   "variables": {
     "asan": 0,
-    "coverage": "false",
     "debug_devtools": "node",
     "force_dynamic_crt": 0,
     "host_arch": "x64",
@@ -60,7 +59,7 @@
     "want_separate_host_toolset": 0,
     "want_separate_host_toolset_mkpeephole": 0,
     "xcode_version": "7.0",
-    "nodedir": "/Users/adam/.node-gyp/7.4.0",
+    "nodedir": "/Users/adam/.node-gyp/7.1.0",
     "copy_dev_lib": "true",
     "standalone_static_library": 1
   }
