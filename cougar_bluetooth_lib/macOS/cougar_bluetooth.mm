@@ -6,6 +6,8 @@
 //
 //
 
+#include "../../cougar_lib_commons/Logger.h"
+
 #include "cougar_bluetooth.h"
 #include "cougar_bluetooth_osx.h"
 #include "binding_utilities.h"
@@ -22,8 +24,10 @@ struct Cougar_Bluetooth::PlatformSpecificContainer {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CougarBluetooth::CougarBluetooth(shared_ptr<CougarBluetoothInterface> listener)
+CougarBluetooth::CougarBluetooth()
 {
+    Log::LOGD(__PRETTY_FUNCTION__);
+    _container = new PlatformSpecificContainer();
     _container->bluetooth = [[CougarBluetoothOSX alloc] init];
 }
 
@@ -31,6 +35,7 @@ CougarBluetooth::CougarBluetooth(shared_ptr<CougarBluetoothInterface> listener)
 
 CougarBluetooth::~CougarBluetooth()
 {
+    Log::LOGD(__PRETTY_FUNCTION__);
     if (_container)
     {
         delete _container;
@@ -39,15 +44,18 @@ CougarBluetooth::~CougarBluetooth()
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void CougarBluetooth::StartScan(string deviceUUID)
+void CougarBluetooth::StartScan(std::string deviceUUID, std::function<void(std::string)> resultCallback)
 {
-    //_container->bluetooth startScanForDevices: withBlock:<#(void (*)(NSArray *))#>
+    Log::LOGD(__PRETTY_FUNCTION__);
+    // The exact block argument type is different, lambda will suffice as conversion
+    [_container->bluetooth startScanForDevices:STLStringToNSString(deviceUUID) withCallback:[resultCallback](NSString* s) -> void { resultCallback(NSStringToSTLString(s)); }];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 void CougarBluetooth::StopScan()
 {
+    Log::LOGD(__PRETTY_FUNCTION__);
     [_container->bluetooth stopScan];
 }
 
@@ -55,6 +63,7 @@ void CougarBluetooth::StopScan()
 
 CougarBluetoothStatus CougarBluetooth::GetStatus()
 {
+    Log::LOGD(__PRETTY_FUNCTION__);
     // Not a perfectly safe cast, but fine for now
     return (CougarBluetoothStatus)[_container->bluetooth status];
 }
@@ -63,6 +72,7 @@ CougarBluetoothStatus CougarBluetooth::GetStatus()
 
 bool CougarBluetooth::IsScanning()
 {
+    Log::LOGD(__PRETTY_FUNCTION__);
     return [_container->bluetooth isScanning];
 }
 

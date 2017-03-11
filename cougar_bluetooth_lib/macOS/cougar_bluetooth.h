@@ -26,10 +26,10 @@ struct PlatformSpecificContainer;
 class CougarBluetooth : public Listenable<CougarBluetoothInterface>
 {
 public:
-    CougarBluetooth(std::shared_ptr<CougarBluetoothInterface> listener);
+    CougarBluetooth();
     virtual ~CougarBluetooth();
     
-    void StartScan(std::string deviceUUID);
+    void StartScan(std::string deviceUUID, std::function<void(std::string)> resultCallback);
     
     void StopScan();
     

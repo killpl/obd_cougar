@@ -8,29 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		00FABE6142241A773D33F821 /* cougar_bluetooth_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */; };
-		6668F5931E6F2AE200DDA0DE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6668F5921E6F2AE200DDA0DE /* CoreBluetooth.framework */; };
+		5383A4BA739086C42CAF0E2E /* -framework CoreFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D50F1F8794057AE6151DD /* -framework CoreFoundation */; };
 		8F4D6E8EEFA5AB13366D7389 /* cougar_bluetooth_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */; };
-		D2E929628A88625F637704D2 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307F0A222FCA716E8E1BAE17 /* CoreBluetooth.framework */; };
-		D3E8454681324ACAEA4536D6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC059F7D738DE4202F50FFD /* CoreFoundation.framework */; };
+		A6EA11E9CC23AEC69CBE116B /* -framework CoreBluetooth in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F573DFD1567EE4D8C7EC577 /* -framework CoreBluetooth */; };
 		EAAB0F8EC6F9746D2E179D8D /* cougar_bluetooth.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEDF70E156E08E9EF9B8FC51 /* cougar_bluetooth.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		178609218A305335F5A37449 /* addon.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = addon.gypi; path = "../../../../usr/local/lib/node_modules/node-gyp/addon.gypi"; sourceTree = "<group>"; };
 		30060507364D46254D021CD5 /* cougar_bluetooth_osx.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = cougar_bluetooth_osx.mm; sourceTree = "<group>"; };
-		307F0A222FCA716E8E1BAE17 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreBluetooth.framework; sourceTree = "<group>"; };
 		48389D1C386E5F540843AD99 /* cougar_bluetooth_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth_osx.h; sourceTree = "<group>"; };
 		4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = cougar_bluetooth_lib.node; sourceTree = BUILT_PRODUCTS_DIR; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
-		6668F5921E6F2AE200DDA0DE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		6668F5941E6F2E0A00DDA0DE /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		6C027CE311E6F8B48D636421 /* cougar_bluetooth_interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth_interface.h; sourceTree = "<group>"; };
+		7F573DFD1567EE4D8C7EC577 /* -framework CoreBluetooth */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework CoreBluetooth"; sourceTree = "<group>"; };
 		8019A84516063C9209D912EF /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../.node-gyp/7.1.0/include/node/common.gypi"; sourceTree = "<group>"; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		B9E6565D09220ABD87231797 /* cougar_bluetooth_lib.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cougar_bluetooth_lib.cc; sourceTree = "<group>"; };
 		C9CCE0C359FDB070ADA16876 /* cougar_bluetooth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cougar_bluetooth.h; sourceTree = "<group>"; };
 		CEDF70E156E08E9EF9B8FC51 /* cougar_bluetooth.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = cougar_bluetooth.mm; sourceTree = "<group>"; };
-		DDC059F7D738DE4202F50FFD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreFoundation.framework; sourceTree = "<group>"; };
 		F45298616A5FCDBFBD15D323 /* Listenable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Listenable.h; sourceTree = "<group>"; };
+		F45D50F1F8794057AE6151DD /* -framework CoreFoundation */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework CoreFoundation"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,29 +37,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6668F5931E6F2AE200DDA0DE /* CoreBluetooth.framework in Frameworks */,
-				D2E929628A88625F637704D2 /* CoreBluetooth.framework in Frameworks */,
-				D3E8454681324ACAEA4536D6 /* CoreFoundation.framework in Frameworks */,
+				A6EA11E9CC23AEC69CBE116B /* -framework CoreBluetooth in Frameworks */,
+				5383A4BA739086C42CAF0E2E /* -framework CoreFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C81B59D171467DEE6D360ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6668F5921E6F2AE200DDA0DE /* CoreBluetooth.framework */,
-				307F0A222FCA716E8E1BAE17 /* CoreBluetooth.framework */,
-				DDC059F7D738DE4202F50FFD /* CoreFoundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		322A2D5A359DA5BAC321F3EE /* ../cougar_lib_commons */ = {
 			isa = PBXGroup;
 			children = (
 				F45298616A5FCDBFBD15D323 /* Listenable.h */,
+				6668F5941E6F2E0A00DDA0DE /* Logger.h */,
 			);
 			path = ../cougar_lib_commons;
 			sourceTree = "<group>";
@@ -91,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				6CFC359CB0183F5FB4772254 /* Source */,
-				2C81B59D171467DEE6D360ED /* Frameworks */,
+				A59E5FBBA71AB907C07F9A2C /* Frameworks */,
 				76CAE45545D759339C4C84F5 /* Products */,
 				38885F38CBC875FB50D53A58 /* Build */,
 			);
@@ -103,6 +92,15 @@
 				4E42BBC103062FF8CC00A69B /* cougar_bluetooth_lib.node */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A59E5FBBA71AB907C07F9A2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F573DFD1567EE4D8C7EC577 /* -framework CoreBluetooth */,
+				F45D50F1F8794057AE6151DD /* -framework CoreFoundation */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BF19EAA92B5C5AC6500CA127 /* macOS */ = {

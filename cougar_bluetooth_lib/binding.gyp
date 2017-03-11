@@ -8,6 +8,7 @@
         
         "cougar_bluetooth_interface.h",
         
+        "./../cougar_lib_commons/Logger.h",
         "./../cougar_lib_commons/Listenable.h",
         
         "./macOS/cougar_bluetooth.h",
@@ -30,8 +31,8 @@
               ],
               'link_settings': {
                   'libraries': [
-                    'CoreBluetooth.framework',
-                    'CoreFoundation.framework',
+                    '-framework CoreBluetooth',
+                    '-framework CoreFoundation',
                   ]
               },
               'xcode_settings': {

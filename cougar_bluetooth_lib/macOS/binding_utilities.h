@@ -10,7 +10,7 @@
 
 // Utility - easier to change if necessary
 
-#define NSStringToSTLString(str) [NSString stringWithUTF8String:str.c_str()];
+#define STLStringToNSString(str) [NSString stringWithUTF8String:str.c_str()]
 
-#define STLStringToNSString(str) [str UTF8String];
+#define NSStringToSTLString(str) [str UTF8String]
 
