@@ -7,15 +7,18 @@ electron = require('electron');
 
 bluetooth = require("./../../../../cougar_bluetooth_lib/build/Release/cougar_bluetooth_lib.node");
 
+cougar = require("./../../../../cougar_lib/build/Release/obd_cougar.node");
 
 var _logFunction = function(str) {
   console.log(str);
 };
 console.log(bluetooth);
+console.log(cougar);
+
 bluetooth.SetLogCallback(_logFunction);
+cougar.SetLogCallback(_logFunction);
 
 b = new bluetooth.Cougar_Bluetooth();
-
 
 
 electron.app.on('ready', function() {

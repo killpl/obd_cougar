@@ -159,7 +159,8 @@ namespace Cougar_Bluetooth {
         // Store the function for future callbacks
         Log::LogFunction() = Persistent<Function, CopyablePersistentTraits<Function> >(isolate, cb);
  
-        Log::LOGD("Log callback set.");
+        
+        LOGD << "Log callback set.";
     }
     
     // Mandatory init method

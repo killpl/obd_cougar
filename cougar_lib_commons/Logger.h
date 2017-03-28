@@ -16,24 +16,35 @@ using v8::CopyablePersistentTraits;
 #include <iomanip>
 #include <sstream>
 
+#define LOG(level) \
+  if (level > Log::LogLevel()) ; \
+  else Log().Get(level)
+
+#define LOGD \
+  LOG(Log::LOG_LEVEL::eDEBUG)
+
 class Log
 {
 public:
+    enum class LOG_LEVEL
+    {
+        eERROR,
+        eWARNING,
+        eINFO,
+        eDEBUG
+    };
     
-    /**
-     * Log error message using callback provided by LogFunction().
-     */
-    static void LOGE(std::string sText)
+    Log(){}
+    
+    virtual ~Log()
     {
-        LOG(LOG_LEVEL::eERROR, sText);
+        SendLog(logLevel, os.str());
     }
-
-    /**
-     * Log debug message using callback provided by LogFunction().
-     */
-    static void LOGD(std::string sText)
+    
+    std::ostringstream& Get(LOG_LEVEL level = LOG_LEVEL::eDEBUG)
     {
-        LOG(LOG_LEVEL::eDEBUG, sText);
+        logLevel = level;
+        return os;
     }
     
     // Static field
@@ -43,17 +54,19 @@ public:
         return _logFunction;
     }
     
-private:
-    enum class LOG_LEVEL
+    static LOG_LEVEL& LogLevel()
     {
-        eERROR,
-        eWARNING,
-        eINFO,
-        eDEBUG
-        
-    };
+        static LOG_LEVEL lvl;
+        return lvl;
+    }
     
-    static void LOG(LOG_LEVEL eLevel, const std::string& sText)
+protected:
+    std::ostringstream os;
+
+private:
+    LOG_LEVEL logLevel;
+    
+    static void SendLog(LOG_LEVEL eLevel, const std::string& sText)
     {
         auto isolate = v8::Isolate::GetCurrent();
         v8::HandleScope scope(isolate);

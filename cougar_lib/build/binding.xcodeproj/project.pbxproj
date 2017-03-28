@@ -7,16 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4AEFAFAE8CB2835A6B1F916 /* obd_cougar_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = EE2210B4A44BED552D86ABEE /* obd_cougar_lib.cc */; };
+		070631349B3A621FA5734D6D /* obd_cougar_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = EE2210B4A44BED552D86ABEE /* obd_cougar_lib.cc */; };
+		0D6E00F2258147F59EE1BB12 /* InterfacesOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F48C85F065413F6F0482635C /* InterfacesOSX.cpp */; };
+		203AFB424F2CAF247B8953BD /* -framework CoreFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D50F1F8794057AE6151DD /* -framework CoreFoundation */; };
+		A1878B3F93304D07888CF93F /* -framework IOKit in Frameworks */ = {isa = PBXBuildFile; fileRef = FD647289C805ACC536F82EC1 /* -framework IOKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		076D20216FC2D9C3856BC633 /* Interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interfaces.h; sourceTree = "<group>"; };
+		09FD28EFD34C57241BD5BB45 /* InterfacesOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfacesOSX.h; sourceTree = "<group>"; };
+		0C7EF668B037EE4E24FEDDEA /* Communication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
 		178609218A305335F5A37449 /* addon.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = addon.gypi; path = "../../../../usr/local/lib/node_modules/node-gyp/addon.gypi"; sourceTree = "<group>"; };
-		406BF4E9B9FA98B0D1CD58CC /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../.node-gyp/6.9.2/include/node/common.gypi"; sourceTree = "<group>"; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
+		71B1FBDE521DF2A2DC61EA00 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		BE85F4DF31DEE64380E3BA49 /* obd_cougar.node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = obd_cougar.node; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC6088DBC979685D70EE43CA /* common.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = common.gypi; path = "../../.node-gyp/7.4.0/include/node/common.gypi"; sourceTree = "<group>"; };
 		EE2210B4A44BED552D86ABEE /* obd_cougar_lib.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obd_cougar_lib.cc; sourceTree = "<group>"; };
+		F45298616A5FCDBFBD15D323 /* Listenable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Listenable.h; sourceTree = "<group>"; };
+		F45D50F1F8794057AE6151DD /* -framework CoreFoundation */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework CoreFoundation"; sourceTree = "<group>"; };
+		F48C85F065413F6F0482635C /* InterfacesOSX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InterfacesOSX.cpp; sourceTree = "<group>"; };
+		FD647289C805ACC536F82EC1 /* -framework IOKit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "-framework IOKit"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1878B3F93304D07888CF93F /* -framework IOKit in Frameworks */,
+				203AFB424F2CAF247B8953BD /* -framework CoreFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,10 +48,67 @@
 			children = (
 				178609218A305335F5A37449 /* addon.gypi */,
 				5994D4CAAF6CF72A4AD8621C /* binding.gyp */,
-				406BF4E9B9FA98B0D1CD58CC /* common.gypi */,
+				EC6088DBC979685D70EE43CA /* common.gypi */,
 				86DA05936966AB7017271718 /* config.gypi */,
 			);
 			name = Build;
+			sourceTree = "<group>";
+		};
+		474565807FF29E90E1738DB0 /* serial */ = {
+			isa = PBXGroup;
+			children = (
+				6C88BC0D1798D02432980416 /* macOS */,
+				0C7EF668B037EE4E24FEDDEA /* Communication.h */,
+				076D20216FC2D9C3856BC633 /* Interfaces.h */,
+			);
+			path = serial;
+			sourceTree = "<group>";
+		};
+		68E9A720C3EF37FED83918E8 /* ../cougar_lib_commons */ = {
+			isa = PBXGroup;
+			children = (
+				F45298616A5FCDBFBD15D323 /* Listenable.h */,
+				71B1FBDE521DF2A2DC61EA00 /* Logger.h */,
+			);
+			path = ../cougar_lib_commons;
+			sourceTree = "<group>";
+		};
+		6C88BC0D1798D02432980416 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				F48C85F065413F6F0482635C /* InterfacesOSX.cpp */,
+				09FD28EFD34C57241BD5BB45 /* InterfacesOSX.h */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		74FB431A6F457CFAA99DF565 = {
+			isa = PBXGroup;
+			children = (
+				B4E5D1AADE7986D74588167C /* Source */,
+				BB4AE723774FE2D37A932C2F /* Frameworks */,
+				BCF4B7CC373F6E757D4444E2 /* Products */,
+				38885F38CBC875FB50D53A58 /* Build */,
+			);
+			sourceTree = "<group>";
+		};
+		B4E5D1AADE7986D74588167C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				68E9A720C3EF37FED83918E8 /* ../cougar_lib_commons */,
+				474565807FF29E90E1738DB0 /* serial */,
+				EE2210B4A44BED552D86ABEE /* obd_cougar_lib.cc */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		BB4AE723774FE2D37A932C2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F45D50F1F8794057AE6151DD /* -framework CoreFoundation */,
+				FD647289C805ACC536F82EC1 /* -framework IOKit */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BCF4B7CC373F6E757D4444E2 /* Products */ = {
@@ -47,23 +117,6 @@
 				BE85F4DF31DEE64380E3BA49 /* obd_cougar.node */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		CE1625FFB3C961F8F90D7E10 = {
-			isa = PBXGroup;
-			children = (
-				DBA1A94EBD880688FD38F140 /* Source */,
-				BCF4B7CC373F6E757D4444E2 /* Products */,
-				38885F38CBC875FB50D53A58 /* Build */,
-			);
-			sourceTree = "<group>";
-		};
-		DBA1A94EBD880688FD38F140 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				EE2210B4A44BED552D86ABEE /* obd_cougar_lib.cc */,
-			);
-			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,7 +149,7 @@
 			buildConfigurationList = 4C650493AFEDDCC6E69C8CC5 /* Build configuration list for PBXProject "binding" */;
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
-			mainGroup = CE1625FFB3C961F8F90D7E10;
+			mainGroup = 74FB431A6F457CFAA99DF565;
 			projectDirPath = ..;
 			projectRoot = "";
 			targets = (
@@ -110,7 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4AEFAFAE8CB2835A6B1F916 /* obd_cougar_lib.cc in Sources */,
+				070631349B3A621FA5734D6D /* obd_cougar_lib.cc in Sources */,
+				0D6E00F2258147F59EE1BB12 /* InterfacesOSX.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +177,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = x86_64;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				DYLIB_COMPATIBILITY_VERSION = "";
 				DYLIB_CURRENT_VERSION = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -130,7 +185,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_CW_ASM_SYNTAX = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -142,6 +197,7 @@
 					"_DARWIN_USE_64_BIT_INODE=1",
 					_LARGEFILE_SOURCE,
 					"_FILE_OFFSET_BITS=64",
+					__MACOSX_CORE__,
 					BUILDING_NODE_EXTENSION,
 					DEBUG,
 					_DEBUG,
@@ -149,14 +205,20 @@
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/adam/.node-gyp/6.9.2/include/node",
-					"/Users/adam/.node-gyp/6.9.2/src",
-					"/Users/adam/.node-gyp/6.9.2/deps/uv/include",
-					"/Users/adam/.node-gyp/6.9.2/deps/v8/include",
+					"/Users/adam/.node-gyp/7.4.0/include/node",
+					"/Users/adam/.node-gyp/7.4.0/src",
+					"/Users/adam/.node-gyp/7.4.0/deps/uv/include",
+					"/Users/adam/.node-gyp/7.4.0/deps/v8/include",
+					../node_modules/nan,
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_CFLAGS = "-fno-strict-aliasing";
+				OTHER_CFLAGS = (
+					"-fno-strict-aliasing",
+					"-ObjC++",
+					"-std=c++11",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined dynamic_lookup",
 					"-Wl,-no_pie",
@@ -188,6 +250,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = x86_64;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				DYLIB_COMPATIBILITY_VERSION = "";
 				DYLIB_CURRENT_VERSION = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -195,7 +258,7 @@
 				EXECUTABLE_PREFIX = "";
 				GCC_CW_ASM_SYNTAX = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -206,19 +269,26 @@
 					"_DARWIN_USE_64_BIT_INODE=1",
 					_LARGEFILE_SOURCE,
 					"_FILE_OFFSET_BITS=64",
+					__MACOSX_CORE__,
 					BUILDING_NODE_EXTENSION,
 				);
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/adam/.node-gyp/6.9.2/include/node",
-					"/Users/adam/.node-gyp/6.9.2/src",
-					"/Users/adam/.node-gyp/6.9.2/deps/uv/include",
-					"/Users/adam/.node-gyp/6.9.2/deps/v8/include",
+					"/Users/adam/.node-gyp/7.4.0/include/node",
+					"/Users/adam/.node-gyp/7.4.0/src",
+					"/Users/adam/.node-gyp/7.4.0/deps/uv/include",
+					"/Users/adam/.node-gyp/7.4.0/deps/v8/include",
+					../node_modules/nan,
 				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_CFLAGS = "-fno-strict-aliasing";
+				OTHER_CFLAGS = (
+					"-fno-strict-aliasing",
+					"-ObjC++",
+					"-std=c++11",
+				);
 				OTHER_LDFLAGS = (
 					"-undefined dynamic_lookup",
 					"-Wl,-no_pie",
