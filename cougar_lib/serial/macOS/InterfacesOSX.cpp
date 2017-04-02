@@ -20,19 +20,19 @@ using namespace std;
 std::string InterfacesOSX::CFStringToString(CFStringRef input)
 {
     if (input) {
-        int len = CFStringGetLength(input)*2+1; // UTF8
+        int len = CFStringGetLength(input); // ASCII, to allow further open() operation
 
         char* cstr = new char[len];
-        Boolean result = CFStringGetCString(input,
-                                    cstr,
-                                    len,
-                                    kCFStringEncodingUTF8);
+        Boolean result = CFStringGetCString(input, cstr, len, kCFStringEncodingASCII);
         CFRelease(input);
-        if (result) {
+        
+        if (result)
+        {
             std::string resultString(cstr, len);
             delete[] cstr;
             return resultString;
         }
+        delete[] cstr;
     }
     return "";
 }
@@ -115,10 +115,7 @@ uint InterfacesOSX::GetPropertyInt(io_object_t& device, const char* key)
 
 std::string InterfacesOSX::GetStringDataForDeviceKey(io_object_t& device, CFStringRef key)
 {
-    CFTypeRef resultString = IORegistryEntryCreateCFProperty(device,
-                                                             key,
-                                                             kCFAllocatorDefault,
-                                                             0);
+    CFTypeRef resultString = IORegistryEntryCreateCFProperty(device, key, kCFAllocatorDefault, 0);
     return CFStringToString((CFStringRef)resultString);
     
 }
@@ -152,23 +149,39 @@ ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
             
         if (GetDeviceClass(parent) == USB_DEVICE_ID)
         {
-            LOGD << GetPropertyString(parent, "USB Product Name");
-            LOGD << GetPropertyString(parent, "USB Vendor Name");
-            LOGD << GetPropertyString(parent, "USB Serial Number");
-            LOGD << GetPropertyString(parent, "idVendor");
-            LOGD << GetPropertyString(parent, "idProduct");
+            device.type = DeviceType::USB_DEVICE;
+            
+            device.name = GetPropertyString(parent, "USB Product Name");
+            device.vendorName = GetPropertyString(parent, "USB Vendor Name");
+            device.serialNumber = GetPropertyInt(parent, "USB Serial Number");
+            device.vendorId = GetPropertyInt(parent, "idVendor");
+            device.productId = GetPropertyInt(parent, "idProduct");
+            
+            // Log the debug informations about the USB device
+            LOGD << "USB Product Name:\t" << device.name;
+            LOGD << "USB Vendor Name:\t" << device.vendorName;
+            LOGD << "USB Serial Number:\t" << device.serialNumber;
+            LOGD << "Vendor:\t0x" << std::hex << device.vendorId;
+            LOGD << "Product:\t0x" << std::hex << device.productId;
             
             break;
         }
         
         if (GetDeviceClass(parent) == BLUETOOTH_DEVICE_ID)
         {
-            LOGD << "BTRFCOMMChannel: " << GetPropertyInt(parent, "BTRFCOMMChannel"); // INT
-            LOGD << "BTTTYName: " << GetPropertyString(parent, "BTTTYName");
-            LOGD << "BTName: " << GetPropertyString(parent, "BTName");
-            LOGD << "PortDeviceName: " << GetPropertyString(parent, "PortDeviceName"); // ?
-            LOGD << "BTSerialConnectionType: " << GetPropertyInt(parent, "BTSerialConnectionType"); // INT
-            LOGD << "P49SerialPort: " << GetPropertyInt(parent, "P49SerialPort"); // INT
+            device.type = DeviceType::BLUETOOTH_DEVICE;
+            
+            device.name = GetPropertyString(parent, "BTTTYName");
+            device.channel = GetPropertyInt(parent, "BTRFCOMMChannel");
+            device.connectionType = GetPropertyInt(parent, "BTSerialConnectionType");
+            
+            // Log the debug informations about the bluetooth device
+            LOGD << "BTRFCOMMChannel:\t" << device.channel; // INT
+            LOGD << "BTName:\t" << GetPropertyString(parent, "BTName");
+            LOGD << "BTTTYName:\t" << device.name;
+            LOGD << "PortDeviceName:\t" << GetPropertyString(parent, "PortDeviceName"); // ?
+            LOGD << "BTSerialConnectionType:\t" << device.connectionType; // INT
+            LOGD << "P49SerialPort:\t" << GetPropertyInt(parent, "P49SerialPort"); // INT
             
             break;
         }
@@ -205,22 +218,27 @@ std::vector<SerialDevice> InterfacesOSX::GetDevices()
     // Iterate over found devices
     io_object_t serialPort;
     while ((serialPort = IOIteratorNext(matchingServices))) {
+        SerialDevice device;
         
-        LOGD << METHOD << kIOTTYDeviceKey << ": " << GetStringDataForDeviceKey(serialPort, CFSTR(kIOTTYDeviceKey));
-        LOGD << METHOD << kIOTTYBaseNameKey << ": " << GetStringDataForDeviceKey(serialPort, CFSTR(kIOTTYBaseNameKey));
-        LOGD << METHOD << kIOTTYSuffixKey << ": " << GetStringDataForDeviceKey(serialPort, CFSTR(kIOTTYSuffixKey));
-        LOGD << METHOD << kIOCalloutDeviceKey << ": " << GetStringDataForDeviceKey(serialPort, CFSTR(kIOCalloutDeviceKey));
-        LOGD << METHOD << kIODialinDeviceKey << ": " << GetStringDataForDeviceKey(serialPort, CFSTR(kIODialinDeviceKey));
+        device.name = GetStringDataForDeviceKey(serialPort, CFSTR(kIOTTYDeviceKey));
+        device.calloutDevice = GetStringDataForDeviceKey(serialPort, CFSTR(kIOCalloutDeviceKey));
+        device.dialinDevice = GetStringDataForDeviceKey(serialPort, CFSTR(kIODialinDeviceKey));
+        device.deviceClass = GetDeviceClass(serialPort);
         
-        LOGD << METHOD << "Class: " << GetDeviceClass(serialPort);
+        LOGD << METHOD << kIOTTYDeviceKey << ":\t" << device.name;
+        LOGD << METHOD << kIOTTYBaseNameKey << ":\t" << GetStringDataForDeviceKey(serialPort, CFSTR(kIOTTYBaseNameKey));
+        LOGD << METHOD << kIOTTYSuffixKey << ":\t" << GetStringDataForDeviceKey(serialPort, CFSTR(kIOTTYSuffixKey));
+        LOGD << METHOD << kIOCalloutDeviceKey << ":\t" << device.calloutDevice;
+        LOGD << METHOD << kIODialinDeviceKey << ":\t" << device.dialinDevice;
         
-        GetParentDevice(serialPort);
-        
+        LOGD << METHOD << "Class:\t" << device.deviceClass;
         LOGD << METHOD << "";
+        
+        device.parent = GetParentDevice(serialPort);
+        result.push_back(device);
         
         IOObjectRelease(serialPort);
     }
-    
     IOObjectRelease(matchingServices);
     
     return result;

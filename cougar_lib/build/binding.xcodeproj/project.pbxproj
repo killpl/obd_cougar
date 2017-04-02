@@ -10,15 +10,18 @@
 		070631349B3A621FA5734D6D /* obd_cougar_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = EE2210B4A44BED552D86ABEE /* obd_cougar_lib.cc */; };
 		0D6E00F2258147F59EE1BB12 /* InterfacesOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F48C85F065413F6F0482635C /* InterfacesOSX.cpp */; };
 		203AFB424F2CAF247B8953BD /* -framework CoreFoundation in Frameworks */ = {isa = PBXBuildFile; fileRef = F45D50F1F8794057AE6151DD /* -framework CoreFoundation */; };
+		66D1AF6D1E90FBB800F8DCA2 /* SerialPortOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D1AF6B1E90FBB800F8DCA2 /* SerialPortOSX.cpp */; };
 		A1878B3F93304D07888CF93F /* -framework IOKit in Frameworks */ = {isa = PBXBuildFile; fileRef = FD647289C805ACC536F82EC1 /* -framework IOKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		076D20216FC2D9C3856BC633 /* Interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interfaces.h; sourceTree = "<group>"; };
+		076D20216FC2D9C3856BC633 /* IInterfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInterfaces.h; sourceTree = "<group>"; };
 		09FD28EFD34C57241BD5BB45 /* InterfacesOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfacesOSX.h; sourceTree = "<group>"; };
-		0C7EF668B037EE4E24FEDDEA /* Communication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
+		0C7EF668B037EE4E24FEDDEA /* ISerialPort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISerialPort.h; sourceTree = "<group>"; };
 		178609218A305335F5A37449 /* addon.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = addon.gypi; path = "../../../../usr/local/lib/node_modules/node-gyp/addon.gypi"; sourceTree = "<group>"; };
 		5994D4CAAF6CF72A4AD8621C /* binding.gyp */ = {isa = PBXFileReference; explicitFileType = sourcecode; path = binding.gyp; sourceTree = "<group>"; };
+		66D1AF6B1E90FBB800F8DCA2 /* SerialPortOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SerialPortOSX.cpp; sourceTree = "<group>"; };
+		66D1AF6C1E90FBB800F8DCA2 /* SerialPortOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialPortOSX.h; sourceTree = "<group>"; };
 		71B1FBDE521DF2A2DC61EA00 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		86DA05936966AB7017271718 /* config.gypi */ = {isa = PBXFileReference; explicitFileType = sourcecode; name = config.gypi; path = build/config.gypi; sourceTree = "<group>"; };
 		BE85F4DF31DEE64380E3BA49 /* obd_cougar.node */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = obd_cougar.node; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				6C88BC0D1798D02432980416 /* macOS */,
-				0C7EF668B037EE4E24FEDDEA /* Communication.h */,
-				076D20216FC2D9C3856BC633 /* Interfaces.h */,
+				0C7EF668B037EE4E24FEDDEA /* ISerialPort.h */,
+				076D20216FC2D9C3856BC633 /* IInterfaces.h */,
 			);
 			path = serial;
 			sourceTree = "<group>";
@@ -78,6 +81,8 @@
 			children = (
 				F48C85F065413F6F0482635C /* InterfacesOSX.cpp */,
 				09FD28EFD34C57241BD5BB45 /* InterfacesOSX.h */,
+				66D1AF6B1E90FBB800F8DCA2 /* SerialPortOSX.cpp */,
+				66D1AF6C1E90FBB800F8DCA2 /* SerialPortOSX.h */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -148,7 +153,11 @@
 			};
 			buildConfigurationList = 4C650493AFEDDCC6E69C8CC5 /* Build configuration list for PBXProject "binding" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 74FB431A6F457CFAA99DF565;
 			projectDirPath = ..;
 			projectRoot = "";
@@ -164,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				070631349B3A621FA5734D6D /* obd_cougar_lib.cc in Sources */,
+				66D1AF6D1E90FBB800F8DCA2 /* SerialPortOSX.cpp in Sources */,
 				0D6E00F2258147F59EE1BB12 /* InterfacesOSX.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +230,8 @@
 					"-std=c++11",
 				);
 				OTHER_LDFLAGS = (
-					"-undefined dynamic_lookup",
+					"-undefined",
+					dynamic_lookup,
 					"-Wl,-no_pie",
 					"-Wl,-search_paths_first",
 				);
@@ -290,7 +301,8 @@
 					"-std=c++11",
 				);
 				OTHER_LDFLAGS = (
-					"-undefined dynamic_lookup",
+					"-undefined",
+					dynamic_lookup,
 					"-Wl,-no_pie",
 					"-Wl,-search_paths_first",
 				);

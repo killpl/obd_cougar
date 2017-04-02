@@ -28,7 +28,7 @@ Release/obj.target/obd_cougar/obd_cougar_lib.o: ../obd_cougar_lib.cc \
   ../../node_modules/nan/nan_private.h \
   ../../node_modules/nan/nan_typedarray_contents.h \
   ../../cougar_lib_commons/Logger.h .././serial/macOS/InterfacesOSX.h \
-  .././serial/macOS/../Interfaces.h
+  .././serial/macOS/../IInterfaces.h
 ../obd_cougar_lib.cc:
 ../../node_modules/nan/nan.h:
 /Users/adam/.node-gyp/7.4.0/include/node/node_version.h:
@@ -59,4 +59,4 @@ Release/obj.target/obd_cougar/obd_cougar_lib.o: ../obd_cougar_lib.cc \
 ../../node_modules/nan/nan_typedarray_contents.h:
 ../../cougar_lib_commons/Logger.h:
 .././serial/macOS/InterfacesOSX.h:
-.././serial/macOS/../Interfaces.h:
+.././serial/macOS/../IInterfaces.h:

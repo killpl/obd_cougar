@@ -15,6 +15,51 @@ namespace Cougar {
     using v8::Persistent;
     using v8::CopyablePersistentTraits;
     
+    class Serial_Port : public Nan::ObjectWrap {
+    public:
+        static NAN_MODULE_INIT(Init)
+        {
+            v8::Local<v8::FunctionTemplate> tpl = Nan::New<v8::FunctionTemplate>(New);
+            tpl->InstanceTemplate()->SetInternalFieldCount(1);
+            tpl->SetClassName(Nan::New("SerialPort").ToLocalChecked());
+            
+            
+            constructor().Reset(Nan::GetFunction(tpl).ToLocalChecked());
+            Nan::Set(target, Nan::New("SerialPort").ToLocalChecked(),
+                     Nan::GetFunction(tpl).ToLocalChecked());
+        }
+        
+    private:
+        explicit Serial_Port()
+        //: _cougarBluetooth(new Serial_Port())
+        {}
+        
+        virtual ~Serial_Port() {}
+        
+        static NAN_METHOD(New)
+        {
+            if (info.IsConstructCall()) {
+                //Cougar_Bluetooth * obj = new Cougar_Bluetooth();
+                //obj->Wrap(info.This());
+                info.GetReturnValue().Set(info.This());
+            } else {
+                const int argc = 1;
+                v8::Local<v8::Value> argv[argc] = {info[0]};
+                v8::Local<v8::Function> cons = Nan::New(constructor());
+                info.GetReturnValue().Set(Nan::NewInstance(cons, argc, argv).ToLocalChecked());
+            }
+        }
+        
+        // Static field: constructor
+        static inline Nan::Persistent<v8::Function> & constructor()
+        {
+            static Nan::Persistent<v8::Function> my_constructor;
+            return my_constructor;
+        }
+
+    };
+    
+    
     void Method(const FunctionCallbackInfo<Value>& args) {
         Isolate* isolate = args.GetIsolate();
         args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));

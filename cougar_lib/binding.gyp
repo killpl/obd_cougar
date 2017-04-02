@@ -9,10 +9,14 @@
         "./../cougar_lib_commons/Logger.h",
         "./../cougar_lib_commons/Listenable.h",
         
-        "./serial/Interfaces.h",
-        "./serial/Communication.h",
+        "./serial/IInterfaces.h",
         "./serial/macOS/InterfacesOSX.h",
-        "./serial/macOS/InterfacesOSX.cpp"
+        "./serial/macOS/InterfacesOSX.cpp",
+        
+        "./serial/ISerialPort.h",
+        "./serial/macOS/SerialPortOSX.h",
+        "./serial/macOS/SerialPortOSX.cpp",
+        
        ],
 
        "include_dirs" : [

@@ -74,3 +74,19 @@ require('bozon/lib/tasks');
 // html, styles, images, scripts:main, scripts:renderer, prepare:app
 //
 //============================================================================================
+
+var bozon = require('bozon/lib/bozon');
+
+bozon.buildTaskBefore('html', 'build:obd', function(){
+	bozon.spawnSync('/bin/sh', [
+		'-c',
+        '\"cd cougar_lib && node-gyp build\"',
+      ])
+});
+
+bozon.buildTaskBefore('html', 'build:bluetooth', function(){
+	bozon.spawnSync('/bin/sh', [
+		'-c',
+        '\"cd cougar_bluetooth_lib && node-gyp build\"',
+      ])
+});

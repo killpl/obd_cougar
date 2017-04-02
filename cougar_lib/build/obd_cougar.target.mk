@@ -108,7 +108,8 @@ INCS_Release := \
 
 OBJS := \
 	$(obj).target/$(TARGET)/obd_cougar_lib.o \
-	$(obj).target/$(TARGET)/serial/macOS/InterfacesOSX.o
+	$(obj).target/$(TARGET)/serial/macOS/InterfacesOSX.o \
+	$(obj).target/$(TARGET)/serial/macOS/SerialPortOSX.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

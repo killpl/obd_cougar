@@ -11,7 +11,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <IOKit/IOKitLib.h>
 
-#include "../Interfaces.h"
+#include "../IInterfaces.h"
 
 #include <vector>
 
