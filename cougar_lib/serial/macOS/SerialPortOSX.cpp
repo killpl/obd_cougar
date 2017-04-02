@@ -65,17 +65,17 @@ unsigned int SerialPortOSX::UnixFlagsForEnumFlags(int flags)
     
 #define MAP(x,y) if (flags & (unsigned)SerialOpenFlag::x) result |= y;
     
-    MAP(READ_ONLY, O_RDONLY)
+    MAP(READ_ONLY,  O_RDONLY)
     MAP(WRITE_ONLY, O_WRONLY)
     MAP(READ_WRITE, O_RDWR)
-    MAP(NONBLOCK, O_NONBLOCK)
-    MAP(APPEND, O_APPEND)
+    MAP(NONBLOCK,   O_NONBLOCK)
+    MAP(APPEND,     O_APPEND)
     MAP(SHARED_LOCK, O_SHLOCK)
     MAP(EXCLUSIVE_LOCK, O_EXLOCK)
-    MAP(NO_FOLLOW, O_NOFOLLOW)
-    MAP(NO_CTTY, O_NOCTTY)
-    MAP(SYMLINK, O_SYMLINK)
-    MAP(TRUNCATE, O_TRUNC)
+    MAP(NO_FOLLOW,  O_NOFOLLOW)
+    MAP(NO_CTTY,    O_NOCTTY)
+    MAP(SYMLINK,    O_SYMLINK)
+    MAP(TRUNCATE,   O_TRUNC)
 
 #undef MAP
     return result;

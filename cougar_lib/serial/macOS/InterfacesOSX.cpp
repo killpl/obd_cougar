@@ -20,7 +20,7 @@ using namespace std;
 std::string InterfacesOSX::CFStringToString(CFStringRef input)
 {
     if (input) {
-        int len = CFStringGetLength(input); // ASCII, to allow further open() operation
+        int len = CFStringGetLength(input)+1; // ASCII, to allow further open() operation
 
         char* cstr = new char[len];
         Boolean result = CFStringGetCString(input, cstr, len, kCFStringEncodingASCII);
