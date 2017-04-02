@@ -1,6 +1,10 @@
 # OBDCougar
 
-> My OBDCougar app built with Electron
+> OBDCougar application built with Electron and Bozon. 
+
+The application and whole developement is available on the blog: [http://vetinari.pl](http://vetinari.pl)
+
+Application takes part in the "Get Noticed!“.
 
 
 ## Dev
@@ -13,6 +17,8 @@ $ npm install
 
 ```
 $ bozon start
+
+Also builds sub-projects using node-gyp.
 ```
 
 ### Package
