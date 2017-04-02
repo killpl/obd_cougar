@@ -125,6 +125,7 @@ std::string InterfacesOSX::GetStringDataForDeviceKey(io_object_t& device, CFStri
 ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
 {
     ParentDevice device;
+    device.type = DeviceType::OTHER;
     
     io_registry_entry_t parent = 0;
     
@@ -186,7 +187,6 @@ ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
             break;
         }
     }
-    
     IOObjectRelease(deviceObject);
     return device; // RVO
 }

@@ -18,7 +18,8 @@ namespace Cougar {
     enum class DeviceType
     {
         USB_DEVICE,
-        BLUETOOTH_DEVICE
+        BLUETOOTH_DEVICE,
+        OTHER
     };
     
 ////////////////////////////////////////////////////////////////////////////////
