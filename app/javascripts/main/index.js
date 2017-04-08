@@ -1,51 +1,47 @@
 var electron, path, json;
 
+// Logs window - attachable to main window bottom
+var logsWindow = null;
+
+// Logs node - will be moved between windows. Attached to main window if 
+// logsWindow is null.
+var logsNode = null;
+
+// Libraries
 path = require('path');
 json = require('../../package.json');
-
 electron = require('electron');
 
-bluetooth = require("./../../../../cougar_bluetooth_lib/build/Release/cougar_bluetooth_lib.node");
-
-cougar = require("./../../../../cougar_lib/build/Release/obd_cougar.node");
-
-var _logFunction = function(str) {
-  console.log(str);
-};
-console.log(bluetooth);
-console.log(cougar);
-
-bluetooth.SetLogCallback(_logFunction);
-cougar.SetLogCallback(_logFunction);
-
-b = new bluetooth.Cougar_Bluetooth();
+// Import windows creation logic
+prepareMainWindow = require('./mainWindow').prepareMainWindow
 
 
 electron.app.on('ready', function() {
-  var window;
 
-  window = new electron.BrowserWindow({
-    title: json.name,
-    width: json.settings.width,
-    height: json.settings.height
-  });
+  var _onWindowLoaded = function()
+  {
+    var _logFunction = function(timestamp, level, str) {
+        console.log(str);
+        window.webContents.send('log_line',
+          { 
+            timestamp: timestamp,
+            level:     level,
+            str:       str,
+          }
+        );
+    };
 
-  window.loadURL('file://' + path.join(__dirname, '..', '..') + '/index.html');
+    console.log(bluetooth);
+    console.log(cougar);
 
-  window.webContents.on('did-finish-load', function(){
-    window.webContents.send('loaded', {
-      appName: json.name,
-      electronVersion: process.versions.electron,
-      nodeVersion: process.versions.node,
-      chromiumVersion: process.versions.chrome
-    });
+    bluetooth.SetLogCallback(_logFunction);
+    cougar.SetLogCallback(_logFunction);
 
+    b = new bluetooth.Cougar_Bluetooth();
     console.log(b.GetStatus());
     b.StartScan("", _logFunction);
-  });
 
-  window.on('closed', function() {
-    window = null;
-  });
+  };
 
+  var window = prepareMainWindow(electron.app, _onWindowLoaded);
 });

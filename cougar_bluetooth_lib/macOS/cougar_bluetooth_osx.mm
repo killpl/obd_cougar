@@ -115,7 +115,7 @@
         }
     }
     else {
-        LOGD << __PRETTY_FUNCTION__ << "No callback set";
+        LOGD << __PRETTY_FUNCTION__ << " No callback set";
     }
 }
 
@@ -130,15 +130,14 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
     
-    LOGD << __PRETTY_FUNCTION__;
+    LOGI << __PRETTY_FUNCTION__ << " " << [peripheral.name UTF8String];
     
     if (_callbackBlock) {
         _callbackBlock(peripheral.name);
         
-        LOGD << __PRETTY_FUNCTION__ << [peripheral.name UTF8String];
     }
     else {
-        LOGD << __PRETTY_FUNCTION__ << "No callback set";
+        LOGW << __PRETTY_FUNCTION__ << " No callback set";
     }
 }
 

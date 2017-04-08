@@ -1,0 +1,50 @@
+#logsTable {
+	background-color: #666;
+	width: 100%;
+	font-size: 0.75em;
+}
+
+#logsTableContainer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+
+	margin: 2px;
+	border-top: 1px solid gray;
+
+	width: 100%;
+	height: 200px;
+	resize: vertical;
+
+	overflow-y: auto;
+	display: block;
+}
+
+#logsTableHeader {
+	font-variant: small-caps;
+}
+
+.logsTableCell {
+	background-color: #444;
+	padding-left: 3px;
+}
+
+.logsTableTimestamp {
+	width: 120px;
+}
+
+.logsTableDebug {
+	color: white;
+}
+
+.logsTableError {
+	color: red;
+}
+
+.logsTableWarning {
+	color: orange;
+}
+
+.logsTableInfo {
+	color: lightgreen;
+}

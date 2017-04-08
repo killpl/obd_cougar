@@ -69,12 +69,17 @@ std::string InterfacesOSX::GetPropertyString(io_object_t& device, const char* ke
     
     if (propertyValue == NULL)
     {
+        LOGE << METHOD << "Property " << key << " does not exist";
         return result;
     }
     
     if (CFGetTypeID(propertyValue) == CFStringGetTypeID())
     {
         return CFStringToString(static_cast<CFStringRef>(propertyValue));
+    }
+    else
+    {
+        LOGE << METHOD << "Property " << key << " is not string type";
     }
     
     CFRelease(propertyValue);
@@ -99,12 +104,17 @@ uint InterfacesOSX::GetPropertyInt(io_object_t& device, const char* key)
     
     if (propertyValue == NULL)
     {
+        LOGE << METHOD << "Property " << key << " does not exist";
         return result;
     }
     
     if (CFGetTypeID(propertyValue) == CFNumberGetTypeID())
     {
         CFNumberGetValue(static_cast<CFNumberRef>(propertyValue), kCFNumberSInt16Type, &result);
+    }
+    else
+    {
+        LOGE << METHOD << "Property " << key << " is not integer type";
     }
     
     CFRelease(propertyValue);
@@ -117,7 +127,6 @@ std::string InterfacesOSX::GetStringDataForDeviceKey(io_object_t& device, CFStri
 {
     CFTypeRef resultString = IORegistryEntryCreateCFProperty(device, key, kCFAllocatorDefault, 0);
     return CFStringToString((CFStringRef)resultString);
-    
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -142,6 +151,7 @@ ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
         
         if(kern_result != KERN_SUCCESS)
         {
+            LOGE << METHOD << "Error accessing parent device";
             break;
         }
         
@@ -150,6 +160,8 @@ ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
             
         if (GetDeviceClass(parent) == USB_DEVICE_ID)
         {
+            LOGI << METHOD << BLUETOOTH_DEVICE_ID;
+            
             device.type = DeviceType::USB_DEVICE;
             
             device.name = GetPropertyString(parent, "USB Product Name");
@@ -159,17 +171,19 @@ ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
             device.productId = GetPropertyInt(parent, "idProduct");
             
             // Log the debug informations about the USB device
-            LOGD << "USB Product Name:\t" << device.name;
-            LOGD << "USB Vendor Name:\t" << device.vendorName;
-            LOGD << "USB Serial Number:\t" << device.serialNumber;
-            LOGD << "Vendor:\t0x" << std::hex << device.vendorId;
-            LOGD << "Product:\t0x" << std::hex << device.productId;
+            LOGD << METHOD << "USB Product Name:\t" << device.name;
+            LOGD << METHOD << "USB Vendor Name:\t" << device.vendorName;
+            LOGD << METHOD << "USB Serial Number:\t" << device.serialNumber;
+            LOGD << METHOD << "Vendor:\t0x" << std::hex << device.vendorId;
+            LOGD << METHOD << "Product:\t0x" << std::hex << device.productId;
             
             break;
         }
         
         if (GetDeviceClass(parent) == BLUETOOTH_DEVICE_ID)
         {
+            LOGI << METHOD << BLUETOOTH_DEVICE_ID;
+            
             device.type = DeviceType::BLUETOOTH_DEVICE;
             
             device.name = GetPropertyString(parent, "BTTTYName");
@@ -177,12 +191,12 @@ ParentDevice InterfacesOSX::GetParentDevice(io_object_t& object)
             device.connectionType = GetPropertyInt(parent, "BTSerialConnectionType");
             
             // Log the debug informations about the bluetooth device
-            LOGD << "BTRFCOMMChannel:\t" << device.channel; // INT
-            LOGD << "BTName:\t" << GetPropertyString(parent, "BTName");
-            LOGD << "BTTTYName:\t" << device.name;
-            LOGD << "PortDeviceName:\t" << GetPropertyString(parent, "PortDeviceName"); // ?
-            LOGD << "BTSerialConnectionType:\t" << device.connectionType; // INT
-            LOGD << "P49SerialPort:\t" << GetPropertyInt(parent, "P49SerialPort"); // INT
+            LOGD << METHOD << "BTRFCOMMChannel:\t" << device.channel; // INT
+            LOGD << METHOD << "BTName:\t" << GetPropertyString(parent, "BTName");
+            LOGD << METHOD << "BTTTYName:\t" << device.name;
+            LOGD << METHOD << "PortDeviceName:\t" << GetPropertyString(parent, "PortDeviceName"); // ?
+            LOGD << METHOD << "BTSerialConnectionType:\t" << device.connectionType; // INT
+            LOGD << METHOD << "P49SerialPort:\t" << GetPropertyInt(parent, "P49SerialPort"); // INT
             
             break;
         }
@@ -203,7 +217,7 @@ std::vector<SerialDevice> InterfacesOSX::GetDevices()
     
     if (classesToMatch == nullptr)
     {
-        LOGD << METHOD << "None services matching kIOSerialBSDServiceValue found.";
+        LOGE << METHOD << "None services matching kIOSerialBSDServiceValue found.";
         return result;
     }
     
@@ -211,7 +225,7 @@ std::vector<SerialDevice> InterfacesOSX::GetDevices()
     kernResult = IOServiceGetMatchingServices(kIOMasterPortDefault, classesToMatch, &matchingServices);
     
     if (KERN_SUCCESS != kernResult) {
-        LOGD << METHOD << "IOServiceGetMatchingServices returned an error: " << kernResult;
+        LOGE << METHOD << "IOServiceGetMatchingServices returned an error: " << kernResult;
         return result;
     }
     
@@ -231,7 +245,7 @@ std::vector<SerialDevice> InterfacesOSX::GetDevices()
         LOGD << METHOD << kIOCalloutDeviceKey << ":\t" << device.calloutDevice;
         LOGD << METHOD << kIODialinDeviceKey << ":\t" << device.dialinDevice;
         
-        LOGD << METHOD << "Class:\t" << device.deviceClass;
+        LOGI << METHOD << "Class:\t" << device.deviceClass;
         LOGD << METHOD << "";
         
         device.parent = GetParentDevice(serialPort);

@@ -46,7 +46,7 @@ CougarBluetooth::~CougarBluetooth()
 
 void CougarBluetooth::StartScan(std::string deviceUUID, std::function<void(std::string)> resultCallback)
 {
-    LOGD << __PRETTY_FUNCTION__;
+    LOGI << __PRETTY_FUNCTION__;
     // The exact block argument type is different, lambda will suffice as conversion
     [_container->bluetooth startScanForDevices:STLStringToNSString(deviceUUID) withCallback:[resultCallback](NSString* s) -> void { resultCallback(NSStringToSTLString(s)); }];
 }
@@ -55,7 +55,7 @@ void CougarBluetooth::StartScan(std::string deviceUUID, std::function<void(std::
 
 void CougarBluetooth::StopScan()
 {
-    LOGD << __PRETTY_FUNCTION__;
+    LOGI << __PRETTY_FUNCTION__;
     [_container->bluetooth stopScan];
 }
 
@@ -63,7 +63,7 @@ void CougarBluetooth::StopScan()
 
 CougarBluetoothStatus CougarBluetooth::GetStatus()
 {
-    LOGD << __PRETTY_FUNCTION__;
+    LOGI << __PRETTY_FUNCTION__;
     // Not a perfectly safe cast, but fine for now
     return (CougarBluetoothStatus)[_container->bluetooth status];
 }
@@ -72,7 +72,7 @@ CougarBluetoothStatus CougarBluetooth::GetStatus()
 
 bool CougarBluetooth::IsScanning()
 {
-    LOGD << __PRETTY_FUNCTION__;
+    LOGI << __PRETTY_FUNCTION__;
     return [_container->bluetooth isScanning];
 }
 

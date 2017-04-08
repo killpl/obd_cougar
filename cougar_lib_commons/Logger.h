@@ -23,6 +23,16 @@ using v8::CopyablePersistentTraits;
 #define LOGD \
   LOG(Log::LOG_LEVEL::eDEBUG)
 
+#define LOGE \
+LOG(Log::LOG_LEVEL::eERROR)
+
+#define LOGI \
+LOG(Log::LOG_LEVEL::eINFO)
+
+#define LOGW \
+LOG(Log::LOG_LEVEL::eWARNING)
+
+
 class Log
 {
 public:
@@ -73,9 +83,11 @@ private:
         
         v8::Local<v8::Function> callback = v8::Local<Function>::Cast(LogFunction().Get(isolate));
         
-        const unsigned argc = 1;
+        const unsigned argc = 3;
         v8::Local<v8::Value> argv[argc] = {
-            v8::String::NewFromUtf8(isolate, (GetTime() + "\t" + EnumString(eLevel) + "\t" + sText).c_str())
+            v8::String::NewFromUtf8(isolate, GetTime().c_str()),
+            v8::String::NewFromUtf8(isolate, EnumString(eLevel).c_str()),
+            v8::String::NewFromUtf8(isolate, sText.c_str())
         };
         callback->Call(v8::Null(isolate), argc, argv);
     }

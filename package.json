@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "electron": "^1.5.1",
+    "jquery": "^3.2.1",
     "nan": "^2.5.1"
   }
 }

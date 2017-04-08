@@ -14,12 +14,18 @@
 #include <errno.h>
 #include <sysexits.h>
 
+#include "../../../cougar_lib_commons/Logger.h"
+
 using namespace Cougar;
+
+#define METHOD __PRETTY_FUNCTION__ << ": "
 
 ////////////////////////////////////////////////////////////////////////////////
 
 SerialError SerialPortOSX::Open(unsigned int flags)
 {
+    LOGI << METHOD;
+    
     int descriptor = open(_portPath.c_str(), UnixFlagsForEnumFlags(flags));
     
     if (descriptor >= 0)
@@ -85,6 +91,7 @@ unsigned int SerialPortOSX::UnixFlagsForEnumFlags(int flags)
 
 void SerialPortOSX::Close()
 {
+    LOGI << METHOD;
     if (_descriptor >= 0)
     {
         close(_descriptor);
