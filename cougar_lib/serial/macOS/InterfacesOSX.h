@@ -26,6 +26,8 @@ namespace Cougar {
          */
         virtual std::vector<SerialDevice> GetDevices() override;
         
+        virtual ~InterfacesOSX() {}
+        
     private:
         ParentDevice GetParentDevice(io_object_t& object);
         

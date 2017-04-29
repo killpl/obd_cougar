@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron');
-$ = require('jquery');
+const $ = require('jquery');
 
 ipcRenderer.on('loaded', function(event, data) {
   document.getElementById('title').innerHTML = data.appName + ' App';
@@ -15,6 +15,9 @@ ipcRenderer.on('loaded', function(event, data) {
       <button id="logsButtonWarning"><input type="checkbox" checked>WARNING</input></button>
       <button id="logsButtonInfo"><input type="checkbox" checked>INFO</input></button>
       <button id="logsButtonDebug"><input type="checkbox" checked>DEBUG</input></button>
+
+
+      <button id="logsButtonDetach">Swap</button>
 
       <table id="logsTable">
       	<thead>
@@ -35,9 +38,13 @@ ipcRenderer.on('loaded', function(event, data) {
       }
     };
 
-    // Actions
+    // Actions --------
     $("#logsButtonClear").on("click", function(){
       $("#logsTable tbody").empty();
+    });
+
+    $("#logsButtonDetach").on("click", function(){
+      ipcRenderer.send('logs_detached', $("#logsTableContainer").detach());
     });
 
     $("#logsButtonError").on("click",   function(){ hideWithClass("#logsButtonError",   ".logsTableError") });

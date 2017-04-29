@@ -30,6 +30,13 @@ exports.prepareMainWindow = function(app, onLoad)
 
     if (onLoad) {
     	onLoad();
+
+      console.log(cougar);
+      console.log(cougar.SerialPort());
+
+      console.log("TEST");
+      console.log(cougar.SerialPort().GetDevices());
+      console.log("TEST END");
     }
   });
 

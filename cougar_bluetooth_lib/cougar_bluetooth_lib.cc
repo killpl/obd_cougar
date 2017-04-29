@@ -70,7 +70,6 @@ namespace Cougar_Bluetooth {
          */
         static NAN_METHOD(GetStatus)
         {
-            
             Cougar_Bluetooth* obj = Nan::ObjectWrap::Unwrap<Cougar_Bluetooth>(info.Holder());
             
             switch(obj->_cougarBluetooth->GetStatus())

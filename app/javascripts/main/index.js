@@ -12,8 +12,11 @@ path = require('path');
 json = require('../../package.json');
 electron = require('electron');
 
+const {ipcMain} = require('electron')
+
 // Import windows creation logic
 prepareMainWindow = require('./mainWindow').prepareMainWindow
+prepareLogsWindow = require('./logger').prepareLogsWindow
 
 
 electron.app.on('ready', function() {
@@ -44,4 +47,13 @@ electron.app.on('ready', function() {
   };
 
   var window = prepareMainWindow(electron.app, _onWindowLoaded);
+});
+
+
+ipcMain.on('logs_detached', (event, args) => {
+  console.log(args);
+  // Create window and attach on load
+  var window = prepareLogsWindow(()=> {
+    window.webContents.send('attach_logs_node_window', args);
+  });
 });
